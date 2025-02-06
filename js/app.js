@@ -12,8 +12,6 @@ let gameBoard = [
     ["", "", ""]
 ]
 
-
-
 const crossIcon = `<svg
     width="40"
     height="40"
@@ -101,6 +99,14 @@ $gameScreenGridCells.forEach(function($gameScreenGridCell) {
 
 $gameScreenGridCells.forEach(function($gameScreenGridCell) {
     $gameScreenGridCell.addEventListener("click", function() {
+
+        const dataX = $gameScreenGridCell.getAttribute("data-x")
+        const dataY = $gameScreenGridCell.getAttribute("data-y")
+
+        gameBoard[dataY][dataX] = currentPlayer
+
+        console.log(gameBoard)
+
         if ($gameScreenGridCell.hasChildNodes() === false) {
             if (currentPlayer === "x") {
                 $gameScreenGridCell.innerHTML = crossIcon
@@ -112,3 +118,5 @@ $gameScreenGridCells.forEach(function($gameScreenGridCell) {
         }
     })
 })
+
+console.log("saucisson");
